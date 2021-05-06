@@ -1,0 +1,35 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+#container{
+	margin-top: 2.5rem;
+	justify-content: space-around;
+}
+
+.card{
+	text-align: center;
+	box-shadow: 0 0 8px 2px #cac4c4;
+	width: 20rem;
+	margin-bottom: 2.5rem;
+}
+
+.form-control{
+	width: 20rem !important;
+	margin-right: 20px;
+}
+
+#search-btn{
+	width: 10rem;
+}
+
+.row{
+	justify-content: center;
+	align-items: center;
+}
+
+
+
