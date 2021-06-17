@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
+from share_price_nepal import get_price
 
-
-class Nepse:
+class Share:
     def __init__(self):
         self.home_url = "http://www.nepalstock.com/"
         self.stock_live_url = "http://www.nepalstock.com/stocklive"
@@ -16,6 +16,12 @@ class Nepse:
     def live_stock(self):
         live_stock_response = requests.get("http://www.nepalstock.com/stocklive")
         live_stock_soup = BeautifulSoup(live_stock_response.text, "lxml")
+
+        market_status = live_stock_soup.select("#market_info > div > div.top_marketinfo")
+        market_status_text = market_status[0].text.strip()
+
+        if market_status_text == "Market Closed":
+            return "Market is Closed"
 
         live_stock_table = live_stock_soup.select("#home-contents > div.col-xs-12.col-md-9.col-sm-9 > table")
 
@@ -53,3 +59,6 @@ class Nepse:
             live_stock_data.append(live_stock_data_dict)
 
         return live_stock_data
+
+    def today_share_price(self):
+        return get_price()
