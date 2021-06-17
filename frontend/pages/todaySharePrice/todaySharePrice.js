@@ -32,10 +32,8 @@ const searchData = async () => {
   const userInput = document.getElementById("todaySharePriceInput").value;
   const container = document.getElementById("container");
 
-  console.log(shareData);
   for (let shareDataIndex = 0; shareDataIndex < shareData.length; shareDataIndex++){
-    console.log(shareDataIndex)
-    if (userInput.toLowerCase() == (shareData[searchDataIndex].Symbol).toLowerCase()){
+    if (userInput.toLowerCase() == (shareData[shareDataIndex].Symbol).toLowerCase()){
         let shareDataHTML = "";
         let shareDataHTMLTemplate = `<div class="card" style="width: 18rem;">
                     <div class="card-body">
@@ -47,9 +45,8 @@ const searchData = async () => {
                     </div>
                 </div>`;
           shareDataHTML += shareDataHTMLTemplate;
+          container.innerHTML = shareDataHTML;
         }
-
-      container.innerHTML = shareDataHTML;
-  }}
+}}
 
 showData();
