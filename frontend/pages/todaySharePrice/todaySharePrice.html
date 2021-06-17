@@ -23,10 +23,10 @@
   <div class="container" id="navBar"></div>
 
   <div class="container">
-      <div class="row">
+      <form class="row" onsubmit="searchData(); return false">
           <input placeholder="Search By Symbol" type="text" class="form-control" id="todaySharePriceInput">
           <button id="search-btn" class="btn btn-primary" onclick="searchData()">Search</button>
-      </div>
+      </form>
     <div id="container" class="cards row"></div>
   </div>
 

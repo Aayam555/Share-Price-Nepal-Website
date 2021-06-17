@@ -18,17 +18,17 @@ const showData = async () => {
                     <h5 class="card-text">Open: ${shareData[shareDataIndex].Open}</h5>
                     <h5 class="card-text">High: ${shareData[shareDataIndex].High}</h5>
                     <h5 class="card-text">Low: ${shareData[shareDataIndex].Low}</h5>
-                    <a href="${shareData[shareDataIndex].Link}" target="_blank" class="btn btn-primary">Vist: ${shareData[shareDataIndex].Symbol}</a>
+                    <a href="${shareData[shareDataIndex].Link}" target="blank" class="btn btn-primary">Vist: ${shareData[shareDataIndex].Symbol}</a>
                 </div>
             </div>`;
       shareDataHTML += shareDataHTMLTemplate;
     }
-  window.localStorage.setItem("shareData", shareData);
+  window.localStorage.setItem("shareData", JSON.stringify(shareData));
   container.innerHTML = shareDataHTML;
 }
 
 const searchData = () => {
-  const shareData = window.localStorage.getItem("shareData");
+  const shareData = JSON.parse(window.localStorage.getItem("shareData"));
   const userInput = document.getElementById("todaySharePriceInput").value;
   const container = document.getElementById("container");
 
@@ -47,6 +47,7 @@ const searchData = () => {
           shareDataHTML += shareDataHTMLTemplate;
           container.innerHTML = shareDataHTML;
         }
+    userInput.value = "";
 }}
 
 showData();
