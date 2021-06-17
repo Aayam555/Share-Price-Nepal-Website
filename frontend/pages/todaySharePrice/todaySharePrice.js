@@ -23,12 +23,12 @@ const showData = async () => {
             </div>`;
       shareDataHTML += shareDataHTMLTemplate;
     }
-
+  window.localStorage.setItem("shareData", shareData);
   container.innerHTML = shareDataHTML;
 }
 
-const searchData = async () => {
-  const shareData = await getData();
+const searchData = () => {
+  const shareData = window.localStorage.getItem("shareData");
   const userInput = document.getElementById("todaySharePriceInput").value;
   const container = document.getElementById("container");
 
