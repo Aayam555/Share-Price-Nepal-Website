@@ -12,12 +12,11 @@ class Nepse:
         nepse_sensitive_soup = BeautifulSoup(nepse_sensitive_response.text, "lxml")
 
         nepse_sensitive_collection = nepse_sensitive_soup.select("#market-watch > div.panel-body")
-        print(nepse_sensitive_collection)
 
     def live_stock(self):
         live_stock_response = requests.get("http://www.nepalstock.com/stocklive")
         live_stock_soup = BeautifulSoup(live_stock_response.text, "lxml")
-        
+
         live_stock_table = live_stock_soup.select("#home-contents > div.col-xs-12.col-md-9.col-sm-9 > table")
 
         live_stock_table_row = live_stock_table[0].find_all("tr")
@@ -53,4 +52,4 @@ class Nepse:
 
             live_stock_data.append(live_stock_data_dict)
 
-        return live_stock_data 
+        return live_stock_data

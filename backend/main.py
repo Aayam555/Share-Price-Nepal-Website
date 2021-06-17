@@ -1,16 +1,15 @@
 from flask import Flask, jsonify
-from share_price_nepal import get_price
+from nepse_scraper import Nepse
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-share_price = get_price()
-
+data = Nepse()
 
 @app.route('/api/shares')
 def shares_info():
-    return jsonify(share_price)
+    return jsonify(data.live_stock())
 
 
 app.run(debug=True)
