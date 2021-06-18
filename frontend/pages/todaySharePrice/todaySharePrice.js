@@ -13,12 +13,13 @@ const showData = async () => {
 
   for (let shareDataIndex = 0; shareDataIndex<shareData.length; shareDataIndex++){
       let shareDataHTMLTemplate = `<div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h4 class="card-title">Symbol: ${shareData[shareDataIndex].Symbol}</h4>
-                    <h5 class="card-text">Open: ${shareData[shareDataIndex].Open}</h5>
-                    <h5 class="card-text">High: ${shareData[shareDataIndex].High}</h5>
-                    <h5 class="card-text">Low: ${shareData[shareDataIndex].Low}</h5>
-                    <a href="${shareData[shareDataIndex].Link}" target="blank" class="btn btn-primary">Vist: ${shareData[shareDataIndex].Symbol}</a>
+                <div class="card-body" title="${shareData[shareDataIndex.title]}">
+                    <h4 class="card-title">${shareData[shareDataIndex].symbol}</h4>
+                    <h5 class="card-text">Open: ${shareData[shareDataIndex].open}</h5>
+                    <h5 class="card-text">High: ${shareData[shareDataIndex].high}</h5>
+                    <h5 class="card-text">Low: ${shareData[shareDataIndex].low}</h5>
+                    <h5 class="card-text">Close: ${shareData[shareDataIndex].close}</h5>
+                    <a href="${shareData[shareDataIndex].link}" target="_blank" class="btn btn-primary">Vist: ${shareData[shareDataIndex].symbol}</a>
                 </div>
             </div>`;
       shareDataHTML += shareDataHTMLTemplate;
@@ -33,15 +34,16 @@ const searchData = () => {
   const container = document.getElementById("container");
 
   for (let shareDataIndex = 0; shareDataIndex < shareData.length; shareDataIndex++){
-    if (userInput.toLowerCase() == (shareData[shareDataIndex].Symbol).toLowerCase()){
+    if (userInput.toLowerCase() == (shareData[shareDataIndex].symbol).toLowerCase()){
         let shareDataHTML = "";
         let shareDataHTMLTemplate = `<div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title">Symbol: ${shareData[shareDataIndex].Symbol}</h4>
-                        <h5 class="card-text">Open: ${shareData[shareDataIndex].Open}</h5>
-                        <h5 class="card-text">High: ${shareData[shareDataIndex].High}</h5>
-                        <h5 class="card-text">Low: ${shareData[shareDataIndex].Low}</h5>
-                        <a href="${shareData[shareDataIndex].Link}" target="_blank" class="btn btn-primary">Vist: ${shareData[shareDataIndex].Symbol}</a>
+                    <div class="card-body" title="${shareData[shareDataIndex].title}">
+                        <h4 class="card-title">${shareData[shareDataIndex].symbol}</h4>
+                        <h5 class="card-text">Open: ${shareData[shareDataIndex].open}</h5>
+                        <h5 class="card-text">High: ${shareData[shareDataIndex].high}</h5>
+                        <h5 class="card-text">Low: ${shareData[shareDataIndex].low}</h5>
+                        <h5 class="card-text">Close: ${shareData[shareDataIndex].close}</h5>
+                        <a href="${shareData[shareDataIndex].link}" target="_blank" class="btn btn-primary">Vist: ${shareData[shareDataIndex].symbol}</a>
                     </div>
                 </div>`;
           shareDataHTML += shareDataHTMLTemplate;

@@ -1,11 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-from share_price_nepal import get_price
 
 class Share:
     def __init__(self):
-        self.home_url = "http://www.nepalstock.com/"
         self.stock_live_url = "http://www.nepalstock.com/stocklive"
+        self.today_share_price_url = "https://www.sharesansar.com/today-share-price"
 
     def nepse_sensitive(self):
         nepse_sensitive_response = requests.get(self.home_url)
@@ -61,4 +60,24 @@ class Share:
         return live_stock_data
 
     def today_share_price(self):
-        return get_price()
+        today_share_price_response = requests.get(self.today_share_price_url)
+        today_share_price_soup = BeautifulSoup(today_share_price_response.text, "lxml")
+
+        today_share_price_table = today_share_price_soup.select("#headFixed > tbody")[0]
+        today_share_price_table_row = today_share_price_table.find_all("tr")
+        today_share_price_data = list()
+
+        for row in today_share_price_table_row:
+            today_share_price_dict = dict()
+            today_share_price_table_row_data = row.find_all("td")
+            today_share_price_dict["symbol"] = today_share_price_table_row_data[1].text.strip()
+            today_share_price_dict["open"] = today_share_price_table_row_data[3].text
+            today_share_price_dict["high"] = today_share_price_table_row_data[4].text
+            today_share_price_dict["low"] = today_share_price_table_row_data[5].text
+            today_share_price_dict["close"] = today_share_price_table_row_data[6].text
+            today_share_price_dict["link"] = today_share_price_table_row_data[1].find("a")["href"]
+            today_share_price_table_row_data[1].find("a")["title"]
+
+            today_share_price_data.append(today_share_price_dict)
+
+        return today_share_price_data
