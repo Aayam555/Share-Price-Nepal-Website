@@ -2,7 +2,7 @@ const navBarContainer = document.getElementById("navBar");
 
 if (document.title == "Share Price Nepal"){
   navBarContainer.innerHTML = `<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                                  <a href="./index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                                  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                                   <img height="50" width="50" src="/favicon.png" alt="logo" class="mx-2">
                                   <span class="fs-4" id="logo">Share Price Nepal</span>
                                   </a>
@@ -15,7 +15,7 @@ if (document.title == "Share Price Nepal"){
                                 </header>`;
 } else if (document.title == "Today's Share Price"){
   navBarContainer.innerHTML = `<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                                  <a href="./index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                                  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                                   <img height="50" width="50" src="/favicon.png" alt="logo" class="mx-2">
                                   <span class="fs-4" id="logo">Share Price Nepal</span>
                                   </a>
@@ -28,7 +28,7 @@ if (document.title == "Share Price Nepal"){
                                 </header>`;
 } else if (document.title == "Live Share Price"){
   navBarContainer.innerHTML = `<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                                  <a href="./index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                                  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                                   <img height="50" width="50" src="/favicon.png" alt="logo" class="mx-2">
                                   <span class="fs-4" id="logo">Share Price Nepal</span>
                                   </a>
