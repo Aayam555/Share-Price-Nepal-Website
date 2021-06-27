@@ -31,5 +31,16 @@
 	align-items: center;
 }
 
+.card-title, .card-text{
+	display: block;
+}
 
+.card-title{
+	font-size: 1.5rem;
+	font-weight: 600;
+}
 
+.card-text{
+	font-weight: 600;
+	font-size: 17px;
+}

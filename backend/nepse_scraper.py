@@ -25,10 +25,20 @@ class Share:
         live_stock_table = live_stock_soup.select("#home-contents > div.col-xs-12.col-md-9.col-sm-9 > table")
 
         live_stock_table_row = live_stock_table[0].find_all("tr")
+
+        live_stock_table_row_color_data = list()
+
+        for colorIndex in range(1, len(live_stock_table_row)):
+            try:
+                live_stock_table_row_color_data.append(live_stock_table_row[colorIndex]["class"][0])
+
+            except:
+                live_stock_table_row_color_data.append("")
+
         live_stock_table_row_th_removed = live_stock_table_row[1:]
 
         live_stock_data = []
-        for live_stock_table_row_data in live_stock_table_row_th_removed:
+        for live_stock_table_row_data_index, live_stock_table_row_data in enumerate(live_stock_table_row_th_removed):
             live_stock_data_dict = dict()
             live_stock_table_row_data_text = live_stock_table_row_data.find_all("td")
 
@@ -42,6 +52,7 @@ class Share:
             low_price = live_stock_table_row_data_text[8].text
             volume = live_stock_table_row_data_text[9].text
             previous_change = live_stock_table_row_data_text[10].text
+            color = live_stock_table_row_color_data[live_stock_table_row_data_index]
 
 
             live_stock_data_dict["symbol"] = symbol
@@ -54,6 +65,7 @@ class Share:
             live_stock_data_dict["low_price"] = low_price
             live_stock_data_dict["volume"] = volume
             live_stock_data_dict["previous_change"] = previous_change
+            live_stock_data_dict["color"] = color
 
             live_stock_data.append(live_stock_data_dict)
 

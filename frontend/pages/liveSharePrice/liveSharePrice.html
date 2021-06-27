@@ -20,11 +20,11 @@
 <body>
     <div class="container" id="navBar"></div>
 
-  <div class="container">
-      <div class="row">
+  <div class="container" onsubmit="searchData(); return false;">
+      <form class="row">
           <input placeholder="Search By Symbol" type="text" class="form-control" id="liveSharePriceInput">
-          <button id="search-btn" class="btn btn-primary" onclick="search_data()">Search</button>
-      </div>
+          <button type="submit" id="search-btn" class="btn btn-primary">Search</button>
+      </form>
     <div id="container" class="cards row"></div>
   </div>
     <script src="./liveSharePrice.js"></script>
