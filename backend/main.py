@@ -15,4 +15,8 @@ def live_stock():
 def today_share_price():
     return jsonify(data.today_share_price())
 
+@app.route("/api/events")
+def events():
+    return jsonify(data.events())
+
 app.run(host="0.0.0.0")

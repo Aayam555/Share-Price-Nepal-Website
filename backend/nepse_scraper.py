@@ -5,6 +5,7 @@ class Share:
     def __init__(self):
         self.stock_live_url = "http://www.nepalstock.com/stocklive"
         self.today_share_price_url = "https://www.sharesansar.com/today-share-price"
+        self.events_url = "http://www.nepalstock.com/events"
 
     def nepse_sensitive(self):
         nepse_sensitive_response = requests.get(self.home_url)
@@ -93,3 +94,29 @@ class Share:
             today_share_price_data.append(today_share_price_dict)
 
         return today_share_price_data
+
+
+    def events(self):
+        events_response = requests.get(self.events_url)
+        events_soup = BeautifulSoup(events_response.text, "lxml")
+
+        events_cards = events_soup.select("#content")[0]
+
+        nepse_events = events_cards.select(".nepse-events")
+
+        nepse_events_data = []
+
+        for nepse_event in nepse_events:
+            nepse_event_data = {}
+            nepse_event_link = nepse_event.select("a")[0]["href"]
+            nepse_event_img = nepse_event.select("img")[0]["src"]
+            nepse_event_title = nepse_event.select("strong")[0].text
+
+            nepse_event_data["event_link"] = nepse_event_link
+            nepse_event_data["event_img"] = nepse_event_img
+            nepse_event_data["event_title"]= nepse_event_title
+
+            nepse_events_data.append(nepse_event_data)
+
+
+        return nepse_events_data
