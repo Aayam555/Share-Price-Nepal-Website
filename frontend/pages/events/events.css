@@ -1,0 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#event-container{
+	margin-top: 2.5rem;
+	justify-content: space-around;
+}
+
+.card{
+	text-align: center;
+	box-shadow: 0 0 8px 2px #cac4c4;
+	width: 20rem;
+	margin-bottom: 2.5rem;
+  padding: 0 !important;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.card a{
+  color: black;
+  text-decoration: none;
+}
+
+.card a:hover{
+  color: black;
+}
